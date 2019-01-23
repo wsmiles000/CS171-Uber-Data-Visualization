@@ -1,0 +1,159 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+p {
+  font-size: 1.15em;
+}
+h2 {
+  color: #97D4ED;
+}
+.axis path,
+.axis line {
+     fill: none;
+     stroke: #333;
+     shape-rendering: crispEdges;
+}
+
+.axis {
+  font-size: 10px;
+}
+.button {
+  background-color: #F96656;
+  border: none;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 2px;
+}
+#uber-count {
+  margin-left: 735px;
+}
+#clock {
+  margin-left: -18px;
+}
+.btn {
+  background-color: #97D4ED;
+  border: none;
+  margin-left: 20px;
+  margin-top: 30px;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.navbar-default {
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navbar-default .navbar-brand {
+  font-weight: 600;
+  color: black;
+  font-size: 1.75em;
+}
+.navbar-default .navbar-brand:hover {
+  font-weight: 600;
+  color: black;
+}
+.navbar-default .navbar-brand:visited {
+  font-weight: 600;
+  color: black;
+}
+.nav.navbar-nav.navbar-right li a {
+    color: black;
+    font-size: 1.25em;
+}
+.nav.navbar-nav.navbar-right li a:hover {
+    color: black;
+}
+.nav.navbar-nav.navbar-right li a:visited {
+    color: black;
+}
+
+#header-title {
+  color: #97D4ED;
+}
+#day-title {
+  color: #97D4ED;
+}
+#average-title {
+  color: #97D4ED;
+}
+#vehicle-title {
+  color: #97D4ED;
+}
+#total-count {
+  font-size: 1.5em;
+}
+rect.bordered {
+    stroke: #E6E6E6;
+    stroke-width:2px;
+}
+
+#viz-text {
+  padding-top: 20px;
+}
+
+#weather-title {
+  color: #97D4ED;
+}
+
+#mini-container {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #E0F3F8;
+  border-radius: 4px;
+}
+
+#spacer {
+  padding-top: 50px;
+}
+
+#foot {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+#final {
+  padding-bottom: 100px;
+}
+
+footer {
+  background-color: #E0F3F8;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}

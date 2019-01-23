@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uber Everywhere - Home</title>
+
+  <!-- Load Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+  <!-- Load Custom Stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/leaflet.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <!-- Navbar  -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">UBER EVERYWHERE</a>
+      </div>
+      <div id="nav-menu">
+        <ul class="nav navbar-nav navbar-right" id="nav-menu">
+          <li><a href="#main-day">Map</a></li>
+          <li><a href="#average-data">Weekly Averages</a></li>
+          <li><a href="#vehicle-viz">Comparison</a></li>
+          <li><a href="#weather">Weather</a></li>
+          <li><a href="process.pdf" style="color:#F96656">Process Book</a></li>
+          <li><a href="https://www.youtube.com/watch?v=AKDetuktm-Y&feature=youtu.be" style="color:#F96656">Webcast</a></li>
+        </ul>
+      </div>
+    </div><!--/.container-fluid -->
+  </nav>
+  <!-- Body Container -->
+  <div class="container-fluid">
+    <!-- Intro Section  -->
+    <section id="header-info">
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <div>
+            <h1 id="header-title">Visualizing Uber in New York City</h1>
+            </br>
+            <p>Uber is an American transporation company which develops the Uber app, a service that allows users to simply call a ride with the tap of a button. Uber opened in NYC in 2011, making it the first city expansion outside for the company outside of San Francisco. The company has seen hyper-growth in the city, transforming transportation structures throughout the metropolis.</p>
+            <p>As the service has grown, Uber has not been without controversy. Many are claiming they are unfairly taking market share away from taxis and altering transporation illegally. Through data visualization, one can explore certain themes surrounding the company. <strong>How has the service grown? What does a typical week or day look like? What factors affect pickups? What has Uber done to other transport companies?</strong></p>
+            <p>Most of the data used in these visualizations comes from <a href="http://fivethirtyeight.com/">FiveThirtyEight</a>, which obtained it through a Freedom of Information Law request to the New York City Taxi and Limousine Commission. You can find it on GitHub here: <a href="https://github.com/fivethirtyeight/uber-tlc-foil-response">https://github.com/fivethirtyeight/uber-tlc-foil-response</a>.</p>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </section>
+    <!-- Map Visualization -->
+    <section id="main-day">
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <div>
+            <h2 id="day-title">A Day in the Life</h2>
+            </br>
+            <p>It's July 9th in New York City. You're going out and need to call an Uber but are unsure when the best time to call it would be. Below is a timelapse that might help you out.</p>
+            <p>This visualization displays a map of New York's burroughs with <strong>Uber pickups represented throughout the day.</strong> Some of the pickups occur outside the map because the rides started out of, but finished within the city.</p>
+            </br>
+          </div>
+            <div class="col-md-6">
+              <button class="button" id="clock"></button>
+            </div>
+            <div class="col-md-6" style="text-align:center">
+              <div id="total-count"></div>
+              <div id="counter-svg"></div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-centered" id="mini-container">
+            <button type="button" class="btn" id="playButton">Start</button>
+            <div id="ny-map"></div>
+        </div>
+        <div class="col-md-8 col-centered">
+          <p id="viz-text">As one can see in the visualization above, rides stay consistently low throughout the night and late hours, but start to pick up in the morning as people go to work. They drop off again through the middle of the day and then pick up again heavily around rush hour.</p> <p>Geographically speaking, lower Manhattan seems to be taking in way more rides for Uber. In the outer burroughs, Uber might be less prominent because people have their own cars.<br>
+          <strong>We learn that most of our assumptions about the density of pickups are validated.</strong></p>
+        </div>
+      </div>
+    </section>
+    <!-- Average Week Visualization -->
+    <section id="average-data">
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <hr id="spacer">
+          <div>
+            <h2 id="average-title">What Does the Average Week Look Like?</h2>
+            </br>
+            <p>So we've seen what a regular day looks like for Uber in New York, but what does a typical week look like? Below we have the <strong>average number of pickups</strong> for Uber, Lyft, and other car services (including American, Carmel, Dial 7, Diplo, Firstclass, Highclass, Prestige, and Skyline), listed per hour for each day of the week.</p>
+            <p>Before we looked at these visualizations, we assumed that peak hours would look similar for all three categories. You can use the select box below to view data for the other types of car services. Also, if you hover over the heatmap below, a tooltip with the exact number of average rides in that time span will pop up. Give it a second to pop up.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="user-control">
+      				<select id="tile-selector" class="form-control" onchange="changeTile()">
+      				  <option value="Uber">Uber</option>
+      				  <option value="other 8 bases">Aggregate Car Services</option>
+                <option value="Lyft">Lyft</option>
+      				</select>
+      			</div>
+          </div>
+          <div id="tile-chart"></div>
+          <!-- Analysis -->
+          <p>While Uber is serving more rides up later in the day after rush hour (~4 or 5pm), <strong>the other services differ a bit.</strong> For the other car services, they have more pickups earlier on in the day. And Lyft has more pickups late at night. This could potentially be to lower prices at this time. Uber is also averaging way more rides per hour than Lyft, it's biggest competitor in the market.</p>
+          <hr>
+        </div>
+      </div>
+    </section>
+    <!-- Bar Chart Visualization -->
+    <section id="vehicle-viz">
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <div>
+            <h2 id="vehicle-title">Comparing Uber to Other Transportation Companies</h2>
+            <br>
+            <p>We've seen how Uber stacks up to other car services on average, but what does that difference look like over a specific time horizon? We found aggregate data on the number of rides for different car services from July 2014 to September 2014.</p>
+            <p><strong>Each bar below represents the total number of rides for the respective company for the month selected.</strong> One of our hypotheses was that Uber would start to grow, but it's hard to visualize over this time span. Green Taxis are also significantly ahead of Uber, more so than we expected.</p>
+            <p>Play around with the select box to see for yourself!</p>
+          </div>
+          <div class="col-md-6">
+            <form>
+              <select id="bar-selector" class="form-control" onchange="changed()">
+      				  <option value="july">July 2014</option>
+      				  <option value="august">August 2014</option>
+                <option value="september">September 2014</option>
+      				</select>
+            </form>
+          </div>
+          <div id="custom-chart"></div>
+          <hr>
+        </div>
+      </div>
+    </section>
+    <section id="weather">
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <div>
+            <h2 id="weather-title">Does Precipitation Affect the Number of Pickups?</h2>
+              <p>The site has gone through how Uber has grown and operates, but are there other factors that play a role in the company's development? Weather seems to play an important role in the number of Uber pickups.</p><p>The visualizations below illustrate how precipitation levels effect the total number of rides during a given time period. The area chart depicts precipitation levels on  April 30th, 2014. The bar chart illustrates the total number of Uber rides on that day and compares that figure to the number of rides on a day with no precipitation.</p> <p><strong>The brush tool can be used on the area chart</strong> to only show certain hours of the day. During peak levels of precipitation (3:00 PM - 12:00 AM), this difference in the totals can reach up 10,000 rides. <strong>Heavy rain seems to imply a surge in total Uber rides;</strong> however, it is interesting to note that both rainy and sunny days show similar peak hours.</p>
+              <br>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-centered">
+            <button class="button" id="uber-count"></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+          <div id="weather-area"></div>
+        </div>
+        <div class="col-md-5">
+          <div id="barchart-area"></div>
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-centered">
+          <p>We also have an indicator above the bar chart that shows the difference in number of pickups between the 30th and 23rd. If one scrubs over the times with more precipitation, there is a higher difference shown in the indicator.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <div class="col-md-8 col-centered" id="final">
+          <hr>
+          <h2>Final Thoughts</h2>
+          <p>As a service, Uber is becoming somewhat of a commodity, being taken for granted sometimes in major cities. People understand how ubiquitous it is, but don't understand to what extent or its size in relation to other services. This is where data visualization can help guide the user's journey.</p>
+          <p>We've used visualizations to show Uber pickups are more concentrated in Manhattan than in the burroughs and that pickups really grow during rush hour. Also on average, there are more Uber pickups later on in the week and at night, which surprisingly differs from other car services. We thought we would see more growth from Uber over time because it's such a new service, but in aggregate, is still behind some of the cabs. As a day to day factor, weather seems to play a part, as Uber picks up on rainy days for example.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-md-8 col-centered">
+        <div id="foot">
+          <p>Created for Harvard University's CS171: Visualization</p>
+          <p>Designed and Developed by Aashay Sanghvi, Patrick Connors, William Smiles</p>
+          <p>December 2016</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load JS libraries -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/queue.v1.min.js"></script>
+  <script src="js/d3-tip.js"></script>
+
+  <!-- Visualization objects -->
+  <script src="js/barchart.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/weather2.js"></script>
+  <script src="js/boroughs.js"></script>
+  <script src="js/timeLapse.js"></script>
+  <script src="js/stats.js"></script>
+
+  <!-- Load data, create visualizations -->
+  <script src="js/vehicles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+p {
+  font-size: 1.15em;
+}
+h2 {
+  color: #97D4ED;
+}
+
+.navbar-default .navbar-brand {
+  font-weight: 600;
+  color: black;
+  font-size: 1.75em;
+}
+.navbar-default .navbar-brand:hover {
+  font-weight: 600;
+  color: black;
+}
+.navbar-default .navbar-brand:visited {
+  font-weight: 600;
+  color: black;
+}
+.nav.navbar-nav.navbar-right li a {
+    color: black;
+    font-size: 1.25em;
+}
+.nav.navbar-nav.navbar-right li a:hover {
+    color: black;
+}
+.nav.navbar-nav.navbar-right li a:visited {
+    color: black;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
