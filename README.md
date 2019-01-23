@@ -3,5 +3,5 @@ All our Javascript files are included within the folder 'js'. A few external lib
 
 Each of the four visualizations is interactive. For the first object (the map), press the "Start" button to engage the visualization and "Stop" to end it. With regards to the second visualization (the heatmap), use the select box to view information for different companies. The third visualization (the dynamic bar charts) also uses a select box to adapt and change it. The fourth visualization is a coordinated view linking an area chart and a bar chart. The area chart represents total precipitation and you can brush over the graph to visualize the differences in Uber pickups between that day and a not-so rainy day.
 
-The website can be found here: http://wsmiles000.github.io/CS171-Uber-Data-Visualizataion
+The website can be found here: http://wsmiles000.github.io/CS171-Uber-Data-Visualization
 The video can be found here: https://www.youtube.com/watch?v=AKDetuktm-Y&feature=youtu.be
